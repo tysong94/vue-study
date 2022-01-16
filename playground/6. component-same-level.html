@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header v-bind:propsdata="num"></app-header>
+        <app-content v-on:pass="deliverNum"></app-content>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+            template: '<div>header</div>',
+            props: ['propsdata']
+        }
+        var appContent = {
+            template: '<div>content<button v-on:click="passNum">pass</button></div>',
+            methods: {
+                passNum: function() {
+                    this.$emit('pass', 10);
+                }
+            }
+        }
+        new Vue({
+            el: '#app', //id가 app인 태그에 붙인다.
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            }, 
+            data: {
+                num: 0
+            },
+            methods: {
+                deliverNum: function(value) {
+                    this.num = value;
+                }
+            }
+        });
+        /* 같은 레벨에서의 컴포넌트 통신 방법.
+        1. appContent -> root
+            1) 하위 컴포넌트의 메소드 정의 및 이벤트 이름 정의
+                methods -> passNum -> this.$emit('pass', 10); 
+            2) 상위 컴포넌트의 메소드 정의
+                methods -> deliverNum
+            3) 메소드 연결(이벤트 연결)
+                v-on:하위 컴포넌트 이벤트 이름="상위 컴포넌트 메소드 이름"
+
+        2. root -> appHeader
+            1) 하위 컴포넌트의 props 데이터 정의
+                props: ['propsdata']
+            2) 상위 컴포넌트의 데이터 속성 확인
+                num
+            3) 데이터 연결
+                v-bind:하위 컴포넌트 props 속성=상위 컴포넌트 데이터 속성
+        */
+    </script>
+</body>
+</html>

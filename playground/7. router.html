@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- router-link, router-view는 라우터 인스턴스를 뷰 인스턴스에 연결해야만 사용할 수 있음. -->
+        <div>
+            <!-- 연결할 url, 표시될 링크 이름 -->
+            <router-link to="/login">Login</router-link> <!-- <a href="/login">Login</a> -->
+            <router-link to="/main">Main</router-link>
+        </div>
+        <!-- 라우터 url을 통해서 접근할 경우 페이지가 표시될 태그 -->
+        <router-view></router-view> 
+    </div>
+    <!-- 스크립트 소스의 순서도 중요하다.
+    1. vue 라이브러리 스크립트
+    2. vue router 라이브러리 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+    <script>
+        var LoginComponent = {
+            template: '<div>login</div>'
+        }
+        var MainComponent = {
+            template: '<div>main</div>'
+        }
+        var router = new VueRouter({
+            mode: 'history',
+            /* 페이지의 라우팅 정보 
+            - 해당 url에 대하여 어떤 페이지를 보여줄 지에 대한 정보를 가짐
+            - 배열 안에 객체로 담김, 페이지의 개수만큼.*/
+            routes: [
+                {
+                    path: '/login', // 페이지의 url
+                    component: LoginComponent // 페이지에 표시될 컴포넌트 *페이지마다 표시될 컴포넌트는 하나이므로 component이다.(s X)
+                },
+                {
+                    path: '/main',
+                    component: MainComponent
+                }
+            ]
+        });
+        new Vue({
+            el: '#app',
+            router: router //router는 vue 내부적으로 이미 정의된 속성.
+        });
+    </script>
+</body>
+</html>
