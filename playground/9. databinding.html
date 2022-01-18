@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 데이터 바인딩과 computed 속성 -->
+    <div id="app">
+        <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p> <!-- id에 uuid라는 데이터 속성을 바인딩 하겠다. -->
+        <p>{{ doubleNum }} </p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: { /* 데이터 속성 */
+                num: 10,
+                uuid: 'abc1234',
+                name: 'text-blue'
+            },
+            computed: { /* 계산된 데이터 속성 */
+                doubleNum: function() {
+                    return this.num * 2;
+                }
+            }
+        });
+    </script>    
+</body>
+</html>
