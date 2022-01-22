@@ -9,3 +9,11 @@ vue init webpack-simple '프로젝트 폴더 위치'
 
 [Vue CLI 3.x]
 vue create '프로젝트 폴더 위치'
+
+vue create vue-cliv
+cd vue-cli
+npm run serve = vue-cli-service serve(package.json)
+
+이것을 통해서 실행되는 파일
+- public > index.html
+- 
