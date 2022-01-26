@@ -4,7 +4,7 @@
     <!-- v-bind:하위컴포넌트 이벤트명=현재 컴포넌트 메서드명 -->
     <TodoInput v-on:addTodoItem="addTodoItem"></TodoInput>
     <!-- v-bind:하위컴포넌트 props 속성 이름=현재 컴포넌트 data 속성 이름 -->
-    <TodoList v-bind:propsdata="todoItems"></TodoList>
+    <TodoList v-bind:todoItems="todoItems" v-on:removeTodoItem="removeTodoItem"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -27,6 +27,10 @@ export default {
       //JSON을 문자열로 변환 , // 변환하지 않을 경우 확인이 불가. object로 그냥 들어감.
       localStorage.setItem(newTodoItem, JSON.stringify(newTodoItemObj)); 
       this.todoItems.push(newTodoItemObj);
+    },
+    removeTodoItem: function(todoItem, index) {
+      localStorage.removeItem(todoItem.item);
+      this.todoItems.splice(index, 1); // index에서 부터 하나를 지우겠다.
     }
   },
   created: function() {
