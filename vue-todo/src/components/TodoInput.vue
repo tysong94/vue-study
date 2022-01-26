@@ -1,7 +1,7 @@
 <template>
   <div class="inputBox shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
-    <span class="addContainer" v-on:click="addTodo">
+    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodoItem">
+    <span class="addContainer" v-on:click="addTodoItem">
       <i class="fas fa-plus addBtn"></i>
     </span>
   </div>
@@ -16,11 +16,10 @@ export default {
     }
   },
   methods: {
-    addTodo: function() {
+    addTodoItem: function() {
       if(this.newTodoItem !== '') {
-        var obj = {completed: false, item: this.newTodoItem};
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj)); //JSON을 문자열로 변환
-        // 변환하지 않을 경우 확인이 불가. object로 그냥 들어감.
+        // this.$emit('이벤트명', 인자1, 인자2, ...);
+        this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
       }
     },

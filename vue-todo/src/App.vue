@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
+    <!-- v-bind:하위컴포넌트 이벤트명=현재 컴포넌트 메서드명 -->
+    <TodoInput v-on:addTodoItem="addTodoItem"></TodoInput>
     <!-- v-bind:하위컴포넌트 props 속성 이름=현재 컴포넌트 data 속성 이름 -->
     <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
@@ -20,11 +21,20 @@ export default {
       todoItems: []
     }
   },
+  methods: {
+    addTodoItem: function(newTodoItem) {
+      var newTodoItemObj = {completed: false, item: newTodoItem};
+      //JSON을 문자열로 변환 , // 변환하지 않을 경우 확인이 불가. object로 그냥 들어감.
+      localStorage.setItem(newTodoItem, JSON.stringify(newTodoItemObj)); 
+      this.todoItems.push(newTodoItemObj);
+    }
+  },
   created: function() {
     if(localStorage.length > 0) {
       for(var i = 0; i < localStorage.length; i++) {
         if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          var todoItemObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          this.todoItems.push(todoItemObj);
         }
       }
     }
