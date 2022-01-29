@@ -12,9 +12,18 @@ var dictionary = {
 }
 
 2. 객체 리터럴에서 속성명의 축약
-객체의 속성명과 값명이 동일할때 아래와 같이 축약.
+- 객체의 속성명과 값명이 동일할때 아래와 같이 축약.
 var figures = 10;
 var dictionary = {
   // figures: figures
   figures
 }
+
+3. Modules - 자바스크립트 모듈화 방법
+export, import
+기존의 모듈 로더 라이브러리(AMD, Common JS) 기능을 js 언어 자체에서 지원하도록 변경
+
+default export {
+
+}
+=> 한 파일에서 하나밖에 export 되지 않음.
