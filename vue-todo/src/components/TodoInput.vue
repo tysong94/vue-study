@@ -6,11 +6,15 @@
     </span>
 
     <Modal v-if="showModal" @close="showModal = false">
-    <!--
-    you can use custom content here to overwrite
-    default content
-    -->
-    <h3 slot="header">custom header</h3>
+      <!--
+      you can use custom content here to overwrite
+      default content
+      -->
+      <h3 slot="header">
+        경고!
+        <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
+      </h3>
+      <div slot="body">내용을 입력하세요.</div>
     </Modal>
   </div>
 </template>
@@ -32,6 +36,8 @@ export default {
         // this.$emit('이벤트명', 인자1, 인자2, ...);
         this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
       }
     },
     clearInput: function() {
@@ -68,5 +74,8 @@ input:focus {
 .addBtn {
   color: white;
   vertical-align: middle;
+}
+.closeModalBtn {
+  color: #42b983;
 }
 </style>

@@ -8,3 +8,9 @@ https://vuejs.org/v2/examples/modal.html
 Modal Component 생성, 
 TodoList에 등록.
 관련 데이터 : showModal
+
+slot : 이미 정의된 컴포넌트의 template의 일부분을 재정의 가능.
+하위 컴포넌트 : <slot name="body"></slot> 정의 
+상위 컴포넌트 : <h3 slot="body></h3> 와 같이 사용
+
+v-on 축약형 = @
