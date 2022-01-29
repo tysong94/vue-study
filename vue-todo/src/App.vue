@@ -25,33 +25,33 @@ export default {
     'TodoList': TodoList,
     'TodoFooter': TodoFooter
   },
-  data: function() {
+  data() {
     return {
       todoItems: []
     }
   },
   methods: {
-    addTodoItem: function(newTodoItem) {
+    addTodoItem(newTodoItem) {
       const newTodoItemObj = {completed: false, item: newTodoItem};
       //JSON을 문자열로 변환 , // 변환하지 않을 경우 확인이 불가. object로 그냥 들어감.
       localStorage.setItem(newTodoItem, JSON.stringify(newTodoItemObj)); 
       this.todoItems.push(newTodoItemObj);
     },
-    toggleTodoItem: function(todoItem, index) {
+    toggleTodoItem(todoItem, index) {
       this.todoItems[index].completed = !this.todoItems[index].completed
       localStorage.removeItem(this.todoItems[index].item);
       localStorage.setItem(this.todoItems[index].item, JSON.stringify(this.todoItems[index]));
     },
-    removeTodoItem: function(todoItem, index) {
+    removeTodoItem(todoItem, index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1); // index에서 부터 하나를 지우겠다.
     },
-    clearAllItems: function() {
+    clearAllItems() {
       localStorage.clear();
       this.todoItems = [];
     }
   },
-  created: function() {
+  created() {
     if(localStorage.length > 0) {
       for(let i = 0; i < localStorage.length; i++) {
         if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {

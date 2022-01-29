@@ -24,14 +24,14 @@ import Modal from './common/Modal.vue'
 
 // v-model = 2-way binding.(template <-> script)
 export default {
-  data: function() {
+  data() {
     return {
       newTodoItem: "",
       showModal: false
     }
   },
   methods: {
-    addTodoItem: function() {
+    addTodoItem() {
       if(this.newTodoItem !== '') {
         // this.$emit('이벤트명', 인자1, 인자2, ...);
         this.$emit('addTodoItem', this.newTodoItem);
@@ -40,7 +40,7 @@ export default {
         this.showModal = !this.showModal;
       }
     },
-    clearInput: function() {
+    clearInput() {
       this.newTodoItem = '';
     }
   },
