@@ -4,8 +4,10 @@
     <!-- v-bind:하위컴포넌트 이벤트명=현재 컴포넌트 메서드명 -->
     <TodoInput v-on:addTodoItem="addTodoItem"></TodoInput>
     <!-- v-bind:하위컴포넌트 props 속성 이름=현재 컴포넌트 data 속성 이름 -->
-    <TodoList v-bind:todoItems="todoItems" v-on:removeTodoItem="removeTodoItem"></TodoList>
-    <TodoFooter></TodoFooter>
+    <TodoList v-bind:todoItems="todoItems"
+      v-on:toggleTodoItem="toggleTodoItem"
+      v-on:removeTodoItem="removeTodoItem"></TodoList>
+    <TodoFooter v-on:clearAllItems="clearAllItems"></TodoFooter>
   </div>
 </template>
 
@@ -28,9 +30,18 @@ export default {
       localStorage.setItem(newTodoItem, JSON.stringify(newTodoItemObj)); 
       this.todoItems.push(newTodoItemObj);
     },
+    toggleTodoItem: function(todoItem, index) {
+      this.todoItems[index].completed = !this.todoItems[index].completed
+      localStorage.removeItem(this.todoItems[index].item);
+      localStorage.setItem(this.todoItems[index].item, JSON.stringify(this.todoItems[index]));
+    },
     removeTodoItem: function(todoItem, index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1); // index에서 부터 하나를 지우겠다.
+    },
+    clearAllItems: function() {
+      localStorage.clear();
+      this.todoItems = [];
     }
   },
   created: function() {
