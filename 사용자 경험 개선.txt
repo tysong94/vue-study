@@ -1,0 +1,10 @@
+Modal Component.
+
+Vue.js -> learn -> examples -> Modal Component
+
+x-templates : template을 모듈화.
+https://vuejs.org/v2/examples/modal.html
+
+Modal Component 생성, 
+TodoList에 등록.
+관련 데이터 : showModal
