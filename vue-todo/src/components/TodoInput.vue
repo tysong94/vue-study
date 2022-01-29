@@ -24,6 +24,10 @@ import Modal from './common/Modal.vue'
 
 // v-model = 2-way binding.(template <-> script)
 export default {
+  components: {
+    // Modal: Modal
+    Modal
+  },
   data() {
     return {
       newTodoItem: "",
@@ -43,9 +47,6 @@ export default {
     clearInput() {
       this.newTodoItem = '';
     }
-  },
-  components: {
-    Modal: Modal
   }
 }
 </script>
