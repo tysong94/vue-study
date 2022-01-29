@@ -18,6 +18,13 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+  components: {
+    // 컴포넌트 태그명 : 컴포넌트 변수(컴포넌트 내용)
+    'TodoHeader': TodoHeader,
+    'TodoInput': TodoInput,
+    'TodoList': TodoList,
+    'TodoFooter': TodoFooter
+  },
   data: function() {
     return {
       todoItems: []
@@ -25,7 +32,7 @@ export default {
   },
   methods: {
     addTodoItem: function(newTodoItem) {
-      var newTodoItemObj = {completed: false, item: newTodoItem};
+      const newTodoItemObj = {completed: false, item: newTodoItem};
       //JSON을 문자열로 변환 , // 변환하지 않을 경우 확인이 불가. object로 그냥 들어감.
       localStorage.setItem(newTodoItem, JSON.stringify(newTodoItemObj)); 
       this.todoItems.push(newTodoItemObj);
@@ -46,20 +53,13 @@ export default {
   },
   created: function() {
     if(localStorage.length > 0) {
-      for(var i = 0; i < localStorage.length; i++) {
+      for(let i = 0; i < localStorage.length; i++) {
         if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          var todoItemObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          const todoItemObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
           this.todoItems.push(todoItemObj);
         }
       }
     }
-  },
-  components: {
-    // 컴포넌트 태그명 : 컴포넌트 변수(컴포넌트 내용)
-    'TodoHeader': TodoHeader,
-    'TodoInput': TodoInput,
-    'TodoList': TodoList,
-    'TodoFooter': TodoFooter
   }
 }
 </script>

@@ -18,4 +18,4 @@ v-on 축약형 = @
 transitions & animation : 효과 입히는 것.
 
 <transition></transition> 또는 <transition-group></transition-group> 태그를 사용.
-name 속성을 이용해서 사용할 css를 선택한다.
+class가 아닌 name 속성에 사용할 css 클래스를 선택한다.
