@@ -1,0 +1,2 @@
+Vuex 설치 및 등록
+# npm i vuex --save
