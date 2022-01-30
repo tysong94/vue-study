@@ -7,7 +7,26 @@ getters : 연산된 state 값을 접근하는 속성 computed
 actions : 비동기 처리 로직을 선언하는 메서드 async methods(api call)
 mutations : state 값을 변경하는 이벤트 로직 methods
 
-state
+1. state
 
+3. mutations
+- state의 값을 변경할 수 있는 유일한 방법이자 메서드
+- commit()으로 동작
+- 변수나 인자(payload)를 전달할 수 있음.
+- mutations에서 state를 접근하는 방법은 this.state가 아닌 인자로 받은 state.
+
+// store.js
+state: { storeNum: 10 },
+mutations: {
+  modifyState(state, payload) {
+    console.log(payload.str);
+    return state.storeNum += payload.num;
+  }
+}
+// App.vue
+this.$store.commit('modifyState', {
+  str: 'passed from payload',
+  num: 20
+})
 
 

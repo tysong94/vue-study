@@ -15,13 +15,12 @@
 
 <script>
 export default {
-  props: ['todoItems'],
   methods: {
     toggleTodoItem(todoItem, index) {
-      this.$emit('toggleTodoItem', todoItem, index);
+      this.$store.commit('toggleTodoItem', {todoItem, index});
     },
     removeTodoItem(todoItem, index) {
-      this.$emit('removeTodoItem', todoItem, index);
+      this.$store.commit('removeTodoItem', {todoItem, index});
     }
   }
 }

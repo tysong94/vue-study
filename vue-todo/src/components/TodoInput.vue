@@ -22,15 +22,13 @@
 <script>
 import Modal from './common/Modal.vue'
 
-// v-model = 2-way binding.(template <-> script)
 export default {
   components: {
-    // Modal: Modal
     Modal
   },
   data() {
-    return {
-      newTodoItem: "",
+    return { 
+      newTodoItem: "", // v-model = 2-way binding.(template <-> script)
       showModal: false
     }
   },
@@ -38,7 +36,8 @@ export default {
     addTodoItem() {
       if(this.newTodoItem !== '') {
         // this.$emit('이벤트명', 인자1, 인자2, ...);
-        this.$emit('addTodoItem', this.newTodoItem);
+        // this.$emit('addTodoItem', this.newTodoItem);
+        this.$store.commit('addTodoItem', this.newTodoItem);
         this.clearInput();
       } else {
         this.showModal = !this.showModal;
