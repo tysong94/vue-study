@@ -29,4 +29,11 @@ this.$store.commit('modifyState', {
   num: 20
 })
 
+state를 직접 변경하지 않고 mutations로 변경하는 이유
+- state는 여러 컴포넌트에서 공유하고 있음.
+- 따라서 여러 컴포넌트에서 직접 바꿀 시 추적이 어렵다.
+
+4. actions
+
+
 
