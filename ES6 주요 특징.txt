@@ -30,4 +30,13 @@ arr.forEach(value => console.log(value));
 
 *글로벌 변수는 window 객체에 속한다.
 
+3. Object Spraed Operator(Spread 연산자)
+let josh = {
+  field: 'web',
+  language: 'js'
+}
+let developer = {
+  nation: 'korea',
+  ...josh
+}
 
