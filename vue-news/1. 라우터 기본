@@ -1,0 +1,8 @@
+설치
+npm i vue-router --save
+
+적용
+// main.js
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
