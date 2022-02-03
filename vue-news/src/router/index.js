@@ -9,6 +9,10 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   routes: [
     {
+      path: '/',
+      redirect: '/news'
+    },
+    {
       path: '/news',
       component: NewsView
     },
@@ -17,7 +21,7 @@ export const router = new VueRouter({
       component: AskView
     },
     {
-      path: 'jobs',
+      path: '/jobs',
       component: JobsView
     }
   ]
