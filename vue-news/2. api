@@ -1,0 +1,5 @@
+- axios 설치
+npm i axios --save
+
+- promise
+axios.get을 하면 new Promise() 객체를 반환. -> then, catch 사용 가능.
