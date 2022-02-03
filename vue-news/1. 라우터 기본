@@ -2,7 +2,20 @@
 npm i vue-router --save
 
 적용
-// main.js
+// index.js
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
+
+export const router = new VueRouter({
+  routes: [
+    {
+      path: ,
+      component:
+    },
+    ...
+  ]
+})
+
+// main.js
+import { router } from ..
