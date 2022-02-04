@@ -16,9 +16,8 @@ export default {
     }
   },
   created() {
-    var vm = this;
     fetchAsksList()
-      .then(response => vm.asks = response.data)
+      .then(response => this.asks = response.data)
       .catch(error => console.log(error));
   }
 }

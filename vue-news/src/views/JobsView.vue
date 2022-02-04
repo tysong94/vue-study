@@ -16,9 +16,8 @@ export default {
     }
   },
   created() {
-    var vm = this;
     fetchJobsList()
-      .then(response => this.jobs = response.data) //this로 접근 가능...
+      .then(response => this.jobs = response.data)
       .catch(error => console.log(error));
   }
 }
