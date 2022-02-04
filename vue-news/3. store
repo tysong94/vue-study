@@ -10,3 +10,5 @@ NewsView <- Vuex <- API
 
 2. vuex 설치
 - npm i vuex 
+- Vuex : 여러 컴포넌트 간의 데이터를 관리하는 플러그인
+- 별도로 모듈화 후 main.js에서 Vue 인스턴스에 적용.
