@@ -1,0 +1,12 @@
+1. 구조변경
+
+- Before
+
+NewsView <- API
+
+- After
+
+NewsView <- Vuex <- API
+
+2. vuex 설치
+- npm i vuex 
