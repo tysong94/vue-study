@@ -30,3 +30,13 @@ function Vue(el) {
 4. 비동기 처리의 this 
 - 기본적으로 기존 위치를 벗어난 this를 가리킴(undefined)
 - but 화살표 함수를 사용할 경우, this = Vue Component를 가리킴.
+
+[자바스크립트의 비동기 처리]
+1. Callback : 인자로 넘겨지는 함수. 즉, 특정 함수의 실행이 완료되면 
+다시 호출(callBack)되는 함수.
+
+2. Promise
+- Promise 생성자는 반드시 resolve, reject 인자를 가진 함수를 인자로 함.
+- resolve(data) -> .then(data)
+- reject(data) -> catch(data)
+즉, .then()과 .catch()를 제공하는 객체
