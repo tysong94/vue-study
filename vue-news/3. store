@@ -30,3 +30,29 @@ mutations -> state : state.[데이터 속성]
 7. Vuex Data Flow
 https://vuex.vuejs.org/#what-is-a-state-management-pattern
 
+
+8. map 헬퍼 함수 사용법.
+  1) store/index.js
+    - getters 속성 추가
+    ex) 
+    getters: {
+      fetchedNews(state) {
+        return state.news;
+      }
+    },
+  
+  2) Vue Component
+    
+    - 임포트 
+      ex) import { mapGetters } from 'vuex';
+    
+    - computed 속성에 map Getter 추가
+      ex) 
+      computed: {
+        ...mapGetters(['fetchedNews'])
+      },  
+    
+    - template에서 사용
+  
+  9. 모듈화
+    
