@@ -7,7 +7,6 @@ const config = {
 
 // 2. API 함수들 정리
 function fetchNewsList() {
-  // return axios.get(config.baseUrl + 'news/1.json');
   return axios.get(`${config.baseUrl}news/1.json`); //ES6 template string
 }
 function fetchAsksList() {
@@ -19,10 +18,14 @@ function fetchJobsList() {
 function fetchUserInfo(username) {
   return axios.get(`${config.baseUrl}user/${username}.json`);
 }
+function fetchItem(id) {
+  return axios.get(`${config.baseUrl}item/${id}.json`);
+}
 
 export {
   fetchNewsList,
   fetchAsksList,
   fetchJobsList,
   fetchUserInfo,
+  fetchItem,
 }

@@ -2,7 +2,8 @@ import {
   fetchNewsList, 
   fetchAsksList, 
   fetchJobsList,
-  fetchUserInfo, } from '../api/index.js';
+  fetchUserInfo,
+  fetchItem } from '../api/index.js';
 
 export default {
   FETCH_NEWS({ commit }) { //Destructuring
@@ -31,6 +32,11 @@ export default {
       .then(({ data }) => {
         commit('SET_USERINFO', data);
       })
+      .catch(error => console.log(error));
+  },
+  FETCH_ITEM({commit}, id) {
+    fetchItem(id)
+      .then(({data}) => commit('SET_ITEM', data))
       .catch(error => console.log(error));
   }
 }
