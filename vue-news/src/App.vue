@@ -22,6 +22,18 @@ body {
   padding: 0;
   margin: 0;
 }
+a {
+  color: #34495e;
+  text-decoration: none; /* 밑줄 삭제 */
+}
+a.router-link-exact-active {
+  text-decoration: underline; /* 밑줄 표시 */
+}
+a:hover {
+  color: #42b883; /* 링크에 마우스 올라갔을때 */
+  text-decoration: underline; /* 밑줄 표시 */
+}
+
 /* Router Transition */
 .page-enter-active, .page-leave-active {
   transition: opacity .5s;
