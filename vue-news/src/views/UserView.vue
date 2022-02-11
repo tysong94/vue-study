@@ -1,16 +1,19 @@
 <template>
   <div>
-    <p>id : {{ this.$store.state.userinfo.id }}</p>
-    <p>karma : {{ this.$store.state.userinfo.karma }}</p>
-    <p>created : {{ this.$store.state.userinfo.created }}</p>
+    <user-profile></user-profile>
   </div>
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue';
+
 export default {
+  components: {
+    UserProfile,
+  },
   created() {
-    const username = this.$route.params.user;
-    this.$store.dispatch('FETCH_USERINFO', username);
+    const userName = this.$route.params.user;
+    this.$store.dispatch('FETCH_USER', userName);
   }
 }
 </script>

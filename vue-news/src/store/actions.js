@@ -2,7 +2,7 @@ import {
   fetchNewsList, 
   fetchAsksList, 
   fetchJobsList,
-  fetchUserInfo,
+  fetchUser,
   fetchItem } from '../api/index.js';
 
 export default {
@@ -27,10 +27,10 @@ export default {
       })
       .catch(error => console.log(error));
   },
-  FETCH_USERINFO({commit}, username) {
-    fetchUserInfo(username)
+  FETCH_USER({commit}, username) {
+    fetchUser(username)
       .then(({ data }) => {
-        commit('SET_USERINFO', data);
+        commit('SET_USER', data);
       })
       .catch(error => console.log(error));
   },
