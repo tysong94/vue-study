@@ -1,3 +1,24 @@
 데이터 흐름 처리
-1. UserView : user 데이터 요청 및 user state에 저장
-2. UserProfile.vue : state에 저장된 user를 가져옴.
+1. UserProfile에서 computed를 통해 state에 직접 접근
+- UserView : user 데이터 요청 및 user state에 저장
+- UserProfile.vue : state에 저장된 user를 가져옴.
+
+=> vuex를 사용하는 구조에 더 적합
+
+2. UserView에서 dispatch 및 state 저장, computed로 가져옴.
+- UserProfile에 props로 내려줌.
+
+=> UserProfile과 UserView간의 관계를 알 수 있음.
+
+
+slot을 이용한 사용자 프로필 컴포넌트
+- slot : 공통으로 사용하는 하위 컴포넌트의 내용을 상위컴포넌트에서 정의하는 것.
+- 넣을 태그를 작성하고 속성에 slot="" 을 입력
+- template 태그로 작성하면 아무 태그 없이 텍스트로 들어감.
+
+ex)
+  <div slot="username">{{ fetchedItem.user }}</div> //div 태그로 들어감
+  <template slot="time">{{ fetchedItem.time_ago }}</template> // 텍스트로 들어감
+
+*div : 구간 나누는 태그
+*span : 바로 이어붙이는 태그

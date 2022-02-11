@@ -23,6 +23,9 @@ export const store = new Vuex.Store({
     fetchedJobs(state) {
       return state.jobs;
     },
+    fetchedUser(state) {
+      return state.user;
+    },
     fetchedItem(state) {
       return state.item;
     }
