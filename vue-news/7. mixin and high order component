@@ -32,3 +32,28 @@ ex)
           console.log(error);
         });
     }, 3000);
+
+*HOC(High Order Component)
+- 공통된 컴포넌트들을 렌더링하는 하나의 컴포넌트. 
+- 렌더링으로 컴포넌트 생성시에 상위에 하이오더 컴포넌트 하나가 더 생성됨.
+
+결국 목적은, 공통된 컴포넌트 생성시 중복되는 로직을 js로 미리 처리한 후에
+컴포넌트를 생성하는 것.
+
+- 결국 라우터에서 적용되는 컴포넌트들의 개수를 줄이는 역할을 함.
+
+0. routes
+  - router에서 /news, /ask, /jobs routes들의 component에 CreateListView함수를 넣음.
+
+1. NewsView, AskView, JobsView 의 하위 오더 컴포넌트인 ListView 생성
+2. Store
+  - state의 news, ask, jobs를 대체하는 list 속성 추가
+3. api.js
+  - fetchNews, fetchAsk, fetchJobs를 대체하는 fetchList() 추가.
+4. actions.js
+  - FETCH_LIST 추가.
+
+
+페이지 표시 순서
+router -> component -> 하위컴포넌트
+router -> 하이오더 컴포넌트(js) -> 컴포넌트 -> 하위컴포넌트

@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list">
-      <li v-for="item in listItems" class="post">
+      <li v-for="item in fetchedList" class="post">
         <!-- 포인트 영역 -->
         <div class="points">
           {{ item.points || 0}}
@@ -39,31 +39,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   computed: {
-    listItems() {
-      const name = this.$route.name;
-      if(name === 'news') {
-        return this.$store.state.news;
-      } else if (name === 'ask') {
-        return this.$store.state.ask;
-      } else if (name === 'jobs') {
-        return this.$store.state.jobs;
-      } else {
-        return [];
-      }
-    }
+    ...mapGetters(['fetchedList']),
   },
-  // created() {
-  //   const name = this.$route.name;
-  //   if(name === 'news') {
-  //     this.$store.dispatch('FETCH_NEWS');
-  //   } else if (name === 'ask') {
-  //     this.$store.dispatch('FETCH_ASK');
-  //   } else if (name === 'jobs') {
-  //     this.$store.dispatch('FETCH_JOBS');
-  //   }
-  // },
 }
 </script>
 

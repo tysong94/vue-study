@@ -8,21 +8,13 @@ Vue.config.devtools = true;
 
 export const store = new Vuex.Store({
   state: {
-    news: [],
-    ask: [],
-    jobs: [],
+    list: [],
     user: {},
     item: {},
   },
   getters: {
-    fetchedNews(state) {
-      return state.news;
-    },
-    fetchedAsk(state) {
-      return state.ask;
-    },
-    fetchedJobs(state) {
-      return state.jobs;
+    fetchedList(state) {
+      return state.list;
     },
     fetchedUser(state) {
       return state.user;
