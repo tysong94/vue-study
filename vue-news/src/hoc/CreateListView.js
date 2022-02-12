@@ -1,4 +1,4 @@
-import ListView from './ListView.vue';
+import ListView from '../views/ListView.vue';
 import bus from '../utils/bus.js';
 
 export default function CrateListView(name) {
