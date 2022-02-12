@@ -4,15 +4,42 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
 <script>
 import ToolBar from './components/ToolBar.vue';
+import Spinner from './components/Spinner.vue';
+import bus from './utils/bus.js';
 
 export default {
   components: {
     ToolBar,
+    Spinner,
+  },
+  data() {
+    return {
+      loadingStatus: false,
+    };
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+      console.log(this.loadingStatus);
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+      console.log(this.loadingStatus);
+    }
+  },
+  created() {
+    bus.$on('start:spinner', this.startSpinner); // $on() : 비동기 함수임
+    bus.$on('end:spinner', this.endSpinner); // 비동기 함수임
+  },
+  beforeDestroy() {
+    bus.$off('start:spinner', this.startSpinner); 
+    bus.$off('end:spinner', this.endSpinner); 
   }
 }
 </script>

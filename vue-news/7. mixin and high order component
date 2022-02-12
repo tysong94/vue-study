@@ -1,0 +1,16 @@
+이벤트 버스 : 빈 이벤트 객체를 생성하여 컴포넌트간 데이터 전달하는 것
+
+* export 차이
+
+export const bus = new Vue();
+import { bus } from './bus.js';
+
+export default new Vue();
+import 원하는 이름 from './bus.js';
+
+* callback 함수 사용
+인자로 callback 함수를 사용 시에 callback함수로 전달되는 인자가 없는 경우, 
+그냥 함수명만 입력. 함수명 뒤에 ()입력하지 않음.
+ex)
+bus.$on('start:spinner', this.startSpinner); 
+(뒤의 this.startSpinner는 콜백 함수이다.)
