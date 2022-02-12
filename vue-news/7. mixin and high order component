@@ -14,3 +14,21 @@ import 원하는 이름 from './bus.js';
 ex)
 bus.$on('start:spinner', this.startSpinner); 
 (뒤의 this.startSpinner는 콜백 함수이다.)
+
+*setTimeout 사용법
+  setTimeout(() => {
+    실행할 함수, 
+  }, 3000);
+
+*dispatch: Promise 함수이다.
+ex) 
+    setTimeout(() => {
+      this.$store.dispatch('FETCH_NEWS')
+        .then(() => {
+          console.log('fetched');
+          bus.$emit('end:spinner');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 3000);
