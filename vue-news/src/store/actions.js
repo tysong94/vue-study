@@ -7,13 +7,12 @@ import {
 export default {
   FETCH_LIST({ commit }, pageName) {
     return fetchList(pageName) 
-    .then(response => {
-      console.log(4);
-      commit('SET_LIST', response.data);
-      return response.data; 
-      // 여기서 리턴한 값이 위에서 리턴될 Promise 객체의 response 값이 된다. 
-    })
-    .catch(error => console.log(error));
+      .then(response => {
+        commit('SET_LIST', response.data);
+        return response.data; 
+        // 여기서 리턴한 값이 위에서 리턴될 Promise 객체의 response 값이 된다. 
+      })
+      .catch(error => console.log(error));
   },
   FETCH_USER({commit}, username) {
     fetchUser(username)
