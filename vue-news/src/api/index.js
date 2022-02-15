@@ -7,7 +7,11 @@ const config = {
 
 // 2. API 함수들 정리
 function fetchList(pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`); //Promise 객체 반환
+  try {
+    return axios.get(`${config.baseUrl}${pageName}/1.json`); //Promise 객체 반환
+  } catch (error) {
+    console.log(error);    
+  }
 }
 function fetchUser(username) {
   return axios.get(`${config.baseUrl}user/${username}.json`);
