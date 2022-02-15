@@ -5,6 +5,7 @@ import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
+import AsyncAwait from '../views/AsyncAwait.vue';
 // import createListView from '../hoc/CreateListView.js';
 import bus from '../utils/bus.js';
 import { store } from '../store/index.js' // this.$store는 인스턴스(컴포넌트)에서만 접근 가능.
@@ -77,5 +78,9 @@ export const router = new VueRouter({
       path: '/item/:id',
       component: ItemView
     },
+    {
+      path: '/async',
+      component: AsyncAwait
+    },    
   ]
 });
