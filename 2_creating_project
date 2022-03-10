@@ -1,0 +1,23 @@
+vue cli : 명령어를 통해 vue 프로젝트를 생성할 수 있는 vue 명령어 도구.
+vue create vue-til : 'vue-til'이라는 프로젝트를 생성하는 명령어
+preset : vue 플러그인 집합
+  
+? Please pick a preset: Manually select features
+? Check the features needed for your project: Choose vue version, Babel, Linter, Unit
+? Pick a linter / formatter config: Prettier
+? Pick additional lint features: Lint on save   
+? Pick a unit testing solution: Jest
+? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
+? Save this as a preset for future projects? (y/N) n
+
+vue 프로젝트 구조
+- node modules : npm 라이브러리
+- public : 배포할때 사용될 파일들(spa,single page application)
+- src : 소스
+- tests/unit : 테스트시 사용되는 소스
+각각의 config.js -> dedicated config 설정시 생성되는 파일들. package.json에 설정되는 것이 아닌
+별도의 파일들로 각각의 플러그인에 대한 설정을 관리.
+
+eslint 에러 표시 수정
+- eslint 에러가 화면에 표시되는 것은 vue 3버전 이후부터 나타나는 것
+- eslint 에러는 반드시 애플리케이션 실행에 영향을 미치는 에러는 아님.
