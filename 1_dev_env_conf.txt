@@ -1,0 +1,13 @@
+데이터베이스 생성 후
+security - database access : 데이터베이스 계정 정보
+          - network access : 데이터베이스 접속 허용 ip 정보.
+
+MongoDB 연결
+- Deployment - Database - Connect
+- Connect your application
+- Add your connection ... ->  복사
+
+Swagger
+- API 자동화 도구
+- Node js로 개발한 백엔드 API로직을 프론트엔드 개발자가 이해하고 사용하기 만드는 역할
+
