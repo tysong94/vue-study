@@ -1,0 +1,21 @@
+{
+  //compilerOption적용 규칙
+  "compilerOptions": {
+    //루트의 위치 : 현재 프로젝트 루트 디렉토리(vue-til)을 의미
+    "baseUrl": ".", 
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      //url에서 @를 ./src로 인식하도록 설정
+      "@/*": [
+        "./src/*"
+      ],
+    }
+  },
+  //compilerOptions에서 제외할 디렉토리
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
