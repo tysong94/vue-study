@@ -26,6 +26,7 @@ eslint 설정 파일(.eslintrc.js)
 - no-console : console 객체를 에러로 표시할 것인지 여부.
   - production(빌드)할 경우면 warn, 아니면 off.
 
+
 Prettier
 - 코드 정렬(들여쓰기, 개행 등) 규칙을 설정하고 정렬해주는 플러그인
 - 본래 설정파일은 .prettierrc 이나, eslint를 같이 사용할 경우에는 설정을 .eslintrc에서 같이 한다.
@@ -33,3 +34,47 @@ Prettier
 
 *vue 프로젝트에 어떤 플러그인이 사용되고 있는지 확인 
 - package.json -> devDependencies
+
+eslint 룰 어긋날 시 vscode 에디터에 표시하는 법
+- ctrl + ,(설정화면 열기)
+- eslint 검색 -> Eslint > Validate -> setting.json 에서 설정 변경
+- 붙여넣을 내용
+    // ESLint
+    "eslint.validate": [
+        
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        },
+        {
+            "language": "typescript",
+            "autoFix": true
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": true
+        }
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    // don't format on save
+    "editor.formatOnSave": false,
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+
+.eslintrc.js로 ESLint 규칙을 관리하는 이유
+- vscode 확장(extension)을 통해서 eslint나 prettier를 설정하게 되면 그 pc에서 밖에 설정을 유지할 수 없음
+- 따라서 프로젝트 소스 레벨(.eslintrc.js)로 규칙을 관리하는 것이 팀 단위나 다른 곳에서 작업 시에 동일한 환경으로 작업할 수 있음.
+
