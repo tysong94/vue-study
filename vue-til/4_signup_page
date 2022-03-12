@@ -12,3 +12,9 @@ v-on:submit.prevent="submitForm"
 - axios 설치
 - Promise 객체를 반환하는 비동기 메서드 실행(api.get/post...) 시, 
 해당 메서드가 앞에는 await를, 해당 메서드가 포함된 메서드에는 async를 붙여준다.
+
+async-await : https://joshua1988.github.io/web-development/javascript/js-async-await/
+백틱 : https://joshua1988.github.io/es6-online-book/template-literal.html
+es6 destructuring : https://joshua1988.github.io/es6-online-book/destructuring.html
+
+axios create() : https://github.com/axios/axios#axioscreateconfig
