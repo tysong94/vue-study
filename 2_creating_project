@@ -21,3 +21,15 @@ vue 프로젝트 구조
 eslint 에러 표시 수정
 - eslint 에러가 화면에 표시되는 것은 vue 3버전 이후부터 나타나는 것
 - eslint 에러는 반드시 애플리케이션 실행에 영향을 미치는 에러는 아님.
+
+eslint 설정 파일(.eslintrc.js)
+- no-console : console 객체를 에러로 표시할 것인지 여부.
+  - production(빌드)할 경우면 warn, 아니면 off.
+
+Prettier
+- 코드 정렬(들여쓰기, 개행 등) 규칙을 설정하고 정렬해주는 플러그인
+- 본래 설정파일은 .prettierrc 이나, eslint를 같이 사용할 경우에는 설정을 .eslintrc에서 같이 한다.
+- .eslintrc.js에서 설정하게 되면, 규칙 설정 + 에러 표시까지 동시에 해주기 때문임.
+
+*vue 프로젝트에 어떤 플러그인이 사용되고 있는지 확인 
+- package.json -> devDependencies
