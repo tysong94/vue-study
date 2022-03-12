@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 1. HTTP Request & Response 관련 기본 설정
 const instance = axios.create({
-	baseURL: 'http://localhost:3000',
+	baseURL: process.env.VUE_APP_API_URL,
 });
 
 // 2. API 함수들 정리

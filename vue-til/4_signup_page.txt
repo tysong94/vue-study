@@ -18,3 +18,11 @@ async-await : https://joshua1988.github.io/web-development/javascript/js-async-a
 es6 destructuring : https://joshua1988.github.io/es6-online-book/destructuring.html
 
 axios create() : https://github.com/axios/axios#axioscreateconfig
+
+env파일 설정 방법
+- vue cli 3버전 이상부터 VUE_APP_을 붙이면 프로젝트 로딩시 자동으로 환경변수가 로딩되도록 함.
+- .env 파일 생성 -> 변수명 : VUE_APP_API_URL
+- 사용 : process.env.VUE_APP_API_URL
+- .env.development : npm run serve시에 사용
+- .env.production : npm run build시에 사용
+- .env : 위에 해당하는 파일이 없을 시 사용
