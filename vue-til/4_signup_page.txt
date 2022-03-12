@@ -26,3 +26,4 @@ env파일 설정 방법
 - .env.development : npm run serve시에 사용
 - .env.production : npm run build시에 사용
 - .env : 위에 해당하는 파일이 없을 시 사용
+https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables
