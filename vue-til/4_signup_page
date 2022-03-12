@@ -1,0 +1,9 @@
+Vue Snippet 단축키
+- vim : import 빨리하는 입력어
+- vdata, vmethods...
+
+SignupForm.vue
+v-model : input값을 data()와 연결시키는것
+v-on:submit.prevent="submitForm"
+  - prevent : 새로고침 방지
+  - submitForm : 연결시킬 메소드명
