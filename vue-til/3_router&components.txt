@@ -1,0 +1,8 @@
+코드 스플리팅
+- 기본적으로 뷰는 SPA(Single Page application)이므로, 메인 페이지 로딩 시에
+모든 페이지 소스를 가져옴
+- 이를 페이지 호출시마다 필요한 소스를 가져오도록 수정하는 것.
+- 실무의 경우 페이지 소스가 매우 많기 때문에 호출되는 페이지만 소스를 불러오는 것이 효율적
+- 관련 웹페이지
+  - 웹팩 코드 스플리팅 : https://webpack.js.org/guides/code-splitting/
+  - Vue.js 다이나믹 임포트 : https://vuejs.org/guide/built-ins/keep-alive.html
