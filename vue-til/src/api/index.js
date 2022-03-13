@@ -10,5 +10,8 @@ function postSignup(signupData) {
 	// return axios.post(`${config.baseUrl}/signup`, signupData);
 	return instance.post('/signup', signupData);
 }
+function postLogin(loginData) {
+	return instance.post('/login', loginData);
+}
 
-export { postSignup };
+export { postSignup, postLogin };
