@@ -55,10 +55,11 @@ export default {
 				};
 				const { data } = await postLogin(loginData);
 				console.log(data);
-				this.logMessage = `${data.user.username}님 환영합니다.`;
+				this.$router.push('/main');
+				// this.logMessage = `${data.user.username}님 환영합니다.`;
 				// this.initForm();
 			} catch (error) {
-				this.logMessage = error.response.data;
+				this.logMessage = error;
 				// this.initForm();
 			} finally {
 				this.initForm();
