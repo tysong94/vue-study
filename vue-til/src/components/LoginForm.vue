@@ -56,6 +56,7 @@ export default {
 				const { data } = await postLogin(loginData);
 				console.log(data);
 				this.$store.commit('setUsername', data.user.username);
+				this.$store.commit('setToken', data.token);
 				this.$router.push('/main');
 				// this.logMessage = `${data.user.username}님 환영합니다.`;
 			} catch (error) {
