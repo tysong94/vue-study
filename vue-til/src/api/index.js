@@ -1,17 +1,20 @@
 import axios from 'axios';
+import { setInterceptor } from '@/api/interceptors';
 
-// 1. HTTP Request & Response 관련 기본 설정
-const instance = axios.create({
-	baseURL: process.env.VUE_APP_API_URL,
-});
+function createInstance() {
+	const instance = axios.create({
+		baseURL: process.env.VUE_APP_API_URL,
+	});
+	return setInterceptor(instance);
+}
 
 // 2. API 함수들 정리
 function postSignup(signupData) {
-	// return axios.post(`${config.baseUrl}/signup`, signupData);
-	return instance.post('/signup', signupData);
+	return createInstance().post('/signup', signupData);
 }
 function postLogin(loginData) {
-	return instance.post('/login', loginData);
+	console.log(createInstance);
+	return createInstance().post('/login', loginData);
 }
 
 export { postSignup, postLogin };

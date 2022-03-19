@@ -60,7 +60,7 @@ export default {
 				this.$router.push('/main');
 				// this.logMessage = `${data.user.username}님 환영합니다.`;
 			} catch (error) {
-				this.logMessage = error;
+				console.log(error);
 			} finally {
 				this.initForm();
 			}
