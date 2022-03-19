@@ -6,6 +6,7 @@
 		<div class="navigations">
 			<template v-if="isUserLogin">
 				<span class="username">{{ $store.state.username }}</span>
+				<a href="javascript:;" @click="logout">Logout</a>
 			</template>
 			<template v-else>
 				<router-link to="/login">로그인</router-link> |
@@ -20,6 +21,12 @@ export default {
 	computed: {
 		isUserLogin() {
 			return this.$store.getters.isLogin;
+		},
+	},
+	methods: {
+		logout() {
+			this.$store.commit('clearUsername');
+			this.$router.push('/');
 		},
 	},
 };
