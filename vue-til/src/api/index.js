@@ -16,5 +16,8 @@ function postLogin(loginData) {
 	console.log(createInstance);
 	return createInstance().post('/login', loginData);
 }
+function fetchPosts() {
+	return createInstance().get('/posts');
+}
 
-export { postSignup, postLogin };
+export { postSignup, postLogin, fetchPosts };
