@@ -1,0 +1,6 @@
+로그인시 api에서 받아오는 username, token과 같은 데이터를
+store에만 저장하면 새로고침시에 다시 리셋되어 사용자가 사용할 수 없게 됨.
+따라서 브라우저 저장소 중 하나인 cookies에 저장해야 한다.
+
+Cookies 확인 방법
+- 크롬 개발자 도구 -> Application -> Cookies
