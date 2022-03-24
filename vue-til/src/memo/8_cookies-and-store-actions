@@ -7,3 +7,10 @@ Cookies 확인 방법
 
 Store
   - state에 함수를 세팅하면 새로고침 할 때마다 해당 함수를 호출.
+
+async 함수 
+- 무조건 promise가 리턴됨.(별도로 return을 작성하지 않아도)
+단, return을 작성하지 않을 경우 빈 promise 반환
+
+await
+- 비동기 처리가 끝난 후에 다음 로직이 처리되도록 함

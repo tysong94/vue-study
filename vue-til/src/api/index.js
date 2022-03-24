@@ -13,7 +13,6 @@ function postSignup(signupData) {
 	return createInstance().post('/signup', signupData);
 }
 function postLogin(loginData) {
-	console.log(createInstance);
 	return createInstance().post('/login', loginData);
 }
 function fetchPosts() {

@@ -29,9 +29,7 @@
 </template>
 
 <script>
-import { postLogin } from '@/api/index';
 import { validateEmail } from '@/utils/validation';
-import { saveAuthToCookie, saveUserToCookie } from '@/utils/cookies';
 
 export default {
 	data() {
@@ -54,12 +52,9 @@ export default {
 					username: this.username,
 					password: this.password,
 				};
-				const { data } = await postLogin(loginData);
-				console.log(data);
-				this.$store.commit('setToken', data.token);
-				this.$store.commit('setUsername', data.user.username);
-				saveAuthToCookie(data.token);
-				saveUserToCookie(data.user.username);
+				//await를 하지 않으면 순서가 뒤틀림.
+				//해당 로직이 실행된 후에 다름 로직이 실행되도록 함.
+				await this.$store.dispatch('LOGIN', loginData);
 				this.$router.push('/main');
 				// this.logMessage = `${data.user.username}님 환영합니다.`;
 			} catch (error) {
