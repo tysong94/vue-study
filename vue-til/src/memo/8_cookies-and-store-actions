@@ -4,3 +4,6 @@ store에만 저장하면 새로고침시에 다시 리셋되어 사용자가 사
 
 Cookies 확인 방법
 - 크롬 개발자 도구 -> Application -> Cookies
+
+Store
+  - state에 함수를 세팅하면 새로고침 할 때마다 해당 함수를 호출.
