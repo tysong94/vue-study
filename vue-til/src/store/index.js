@@ -35,13 +35,13 @@ export default new Vuex.Store({
 	actions: {
 		// context.commit (ES6 Destructuring)
 		async LOGIN({ commit }, loginData) {
-			const { userData } = await postLogin(loginData);
-			console.log('userData', userData);
-			commit('setToken', userData.token);
-			commit('setUsername', userData.user.username);
-			saveAuthToCookie(userData.token);
-			saveUserToCookie(userData.user.username);
-			return userData;
+			const { data } = await postLogin(loginData);
+			console.log('userData', data);
+			commit('setToken', data.token);
+			commit('setUsername', data.user.username);
+			saveAuthToCookie(data.token);
+			saveUserToCookie(data.user.username);
+			return data;
 		},
 	},
 });
