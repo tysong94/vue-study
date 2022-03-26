@@ -12,6 +12,7 @@
 					<textarea id="contents" type="text" rows="5" v-model="contents" />
 				</div>
 				<button type="submit" class="btn">Create</button>
+				<p class="log">{{ logMessage }}</p>
 			</form>
 		</div>
 	</div>
@@ -24,15 +25,21 @@ export default {
 		return {
 			title: '',
 			contents: '',
+			logMessage: '',
 		};
 	},
 	methods: {
 		async submitForm() {
-			const { data } = await postOnePost({
-				title: this.title,
-				contents: this.contents,
-			});
-			console.log(data);
+			try {
+				const { data } = await postOnePost({
+					title: this.title,
+					contents: this.contents,
+				});
+				console.log(data);
+			} catch (error) {
+				// console.log(error.response.data.message);
+				this.logMessage = error.response.data.message;
+			}
 		},
 	},
 };
