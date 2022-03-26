@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { fetchPosts } from '@/api/index';
+import { getAllPosts } from '@/api/index';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import PostListItem from '@/components/posts/PostListItem.vue';
 
@@ -37,7 +37,7 @@ export default {
 	methods: {
 		async fetchNotes() {
 			this.isLoading = true;
-			const { data } = await fetchPosts();
+			const { data } = await getAllPosts();
 			this.isLoading = false;
 			console.log(data.posts);
 			this.postItems = data.posts;

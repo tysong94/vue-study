@@ -7,16 +7,20 @@ function createInstance() {
 	});
 	return setInterceptor(instance);
 }
+const instance = createInstance();
 
 // 2. API 함수들 정리
 function postSignup(signupData) {
-	return createInstance().post('/signup', signupData);
+	return instance.post('/signup', signupData);
 }
 function postLogin(loginData) {
-	return createInstance().post('/login', loginData);
+	return instance.post('/login', loginData);
 }
-function fetchPosts() {
-	return createInstance().get('/posts');
+function getAllPosts() {
+	return instance.get('/posts');
+}
+function postOnePost(postData) {
+	return instance.post('/posts', postData);
 }
 
-export { postSignup, postLogin, fetchPosts };
+export { postSignup, postLogin, getAllPosts, postOnePost };

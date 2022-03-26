@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { postOnePost } from '@/api/index';
 export default {
 	data() {
 		return {
@@ -26,8 +27,12 @@ export default {
 		};
 	},
 	methods: {
-		submitForm() {
-			console.log('submit');
+		async submitForm() {
+			const { data } = await postOnePost({
+				title: this.title,
+				contents: this.contents,
+			});
+			console.log(data);
 		},
 	},
 };
