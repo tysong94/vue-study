@@ -7,5 +7,7 @@ function getAllPosts() {
 function postOnePost(postData) {
 	return postsInstance.post('/', postData);
 }
-
-export { getAllPosts, postOnePost };
+function deleteOnePost(postId) {
+	return postsInstance.delete(`/${postId}`);
+}
+export { getAllPosts, postOnePost, deleteOnePost };
