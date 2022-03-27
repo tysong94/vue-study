@@ -154,19 +154,19 @@ a:hover {
 	font-size: 14px;
 	color: #9e9e9e;
 }
-.icon {
+ion-icon {
 	font-size: 1.3rem;
 	cursor: pointer;
 	color: #364f6b;
 	padding-right: 0.4rem;
 }
-.icon:hover {
+ion-icon:hover {
 	color: #3fc1c9;
 }
-.icon:active {
+ion-icon:active {
 	color: #fc5185;
 }
-.ion-md-create {
+ion-icon[name="create-outline"] {
 	padding-left: 0.1rem;
 }
 .create-button {

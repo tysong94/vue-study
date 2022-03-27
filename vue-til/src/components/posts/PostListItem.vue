@@ -8,6 +8,8 @@
 		</div>
 		<div class="post-time">
 			{{ postItem.createdAt }}
+			<ion-icon name="create-outline"></ion-icon>
+			<ion-icon name="trash-outline" v-on:click="deleteItem"></ion-icon>
 		</div>
 	</li>
 </template>
@@ -18,6 +20,11 @@ export default {
 		postItem: {
 			type: Object,
 			required: true,
+		},
+	},
+	methods: {
+		deleteItem() {
+			console.log('delete');
 		},
 	},
 };
