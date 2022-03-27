@@ -2,25 +2,18 @@ import axios from 'axios';
 import { setInterceptor } from '@/api/interceptors';
 
 function createInstance() {
-	const instance = axios.create({
+	return axios.create({
 		baseURL: process.env.VUE_APP_API_URL,
+	});
+}
+function createInstanceWithAuth(url) {
+	const instance = axios.create({
+		baseURL: `${process.env.VUE_APP_API_URL}${url}`,
 	});
 	return setInterceptor(instance);
 }
+
 const instance = createInstance();
+const postsInstance = createInstanceWithAuth('/posts');
 
-// 2. API 함수들 정리
-function postSignup(signupData) {
-	return instance.post('/signup', signupData);
-}
-function postLogin(loginData) {
-	return instance.post('/login', loginData);
-}
-function getAllPosts() {
-	return instance.get('/posts');
-}
-function postOnePost(postData) {
-	return instance.post('/posts', postData);
-}
-
-export { postSignup, postLogin, getAllPosts, postOnePost };
+export { instance, postsInstance };

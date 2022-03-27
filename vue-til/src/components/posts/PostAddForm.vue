@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { postOnePost } from '@/api/index';
+import { postOnePost } from '@/api/posts';
 export default {
 	data() {
 		return {

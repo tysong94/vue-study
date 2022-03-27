@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { postSignup } from '@/api/index';
+import { postSignup } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
 
 export default {

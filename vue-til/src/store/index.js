@@ -7,7 +7,7 @@ import {
 	getUserFromCookie,
 } from '@/utils/cookies';
 import {} from '@/utils/cookies';
-import { postLogin } from '@/api/index';
+import { postLogin } from '@/api/auth';
 
 Vue.use(Vuex);
 

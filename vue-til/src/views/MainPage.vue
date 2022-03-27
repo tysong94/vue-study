@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { getAllPosts } from '@/api/index';
+import { getAllPosts } from '@/api/posts';
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import PostListItem from '@/components/posts/PostListItem.vue';
 
