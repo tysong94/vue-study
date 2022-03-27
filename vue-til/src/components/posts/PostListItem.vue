@@ -26,9 +26,12 @@ export default {
 	},
 	methods: {
 		async deleteItem() {
-			console.log(this.postItem._id);
-			const response = await deleteOnePost(this.postItem._id);
-			console.log(response);
+			if (confirm('Do you want to delete it?')) {
+				console.log(this.postItem._id);
+				const response = await deleteOnePost(this.postItem._id);
+				console.log(response);
+				this.$emit('refresh');
+			}
 		},
 	},
 };
