@@ -26,8 +26,7 @@ export default {
 	},
 	methods: {
 		routeEditPage() {
-			this.$router.push('/post/123');
-			console.log('update');
+			this.$router.push(`/post/${this.postItem._id}`);
 		},
 		async deleteItem() {
 			if (confirm('Do you want to delete it?')) {

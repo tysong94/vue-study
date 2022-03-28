@@ -7,7 +7,13 @@ function getAllPosts() {
 function postOnePost(postData) {
 	return postsInstance.post('/', postData);
 }
+function getOnePost(postId) {
+	return postsInstance.get(`/${postId}`);
+}
+function putOnePost(postId, postData) {
+	return postsInstance.put(`/${postId}`, postData);
+}
 function deleteOnePost(postId) {
 	return postsInstance.delete(`/${postId}`);
 }
-export { getAllPosts, postOnePost, deleteOnePost };
+export { getAllPosts, postOnePost, getOnePost, putOnePost, deleteOnePost };
