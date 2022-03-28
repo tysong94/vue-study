@@ -8,7 +8,7 @@
 		</div>
 		<div class="post-time">
 			{{ postItem.createdAt }}
-			<ion-icon name="create-outline"></ion-icon>
+			<ion-icon name="create-outline" v-on:click="routeEditPage"></ion-icon>
 			<ion-icon name="trash-outline" v-on:click="deleteItem"></ion-icon>
 		</div>
 	</li>
@@ -25,6 +25,10 @@ export default {
 		},
 	},
 	methods: {
+		routeEditPage() {
+			this.$router.push('/post/123');
+			console.log('update');
+		},
 		async deleteItem() {
 			if (confirm('Do you want to delete it?')) {
 				console.log(this.postItem._id);
