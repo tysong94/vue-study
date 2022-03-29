@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+const router = new VueRouter({
 	mode: 'history',
 	routes: [
 		{
@@ -36,3 +36,11 @@ export default new VueRouter({
 		},
 	],
 });
+
+// to : 이동할 페이지, from : 현재 페이지, next : 이동을 실행하는 함수
+router.beforeEach((to, from, next) => {
+	console.log(to);
+	next();
+});
+
+export default router;
