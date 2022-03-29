@@ -7,7 +7,7 @@
 			{{ postItem.contents }}
 		</div>
 		<div class="post-time">
-			{{ postItem.createdAt }}
+			{{ postItem.createdAt | formatDate }}
 			<ion-icon name="create-outline" v-on:click="routeEditPage"></ion-icon>
 			<ion-icon name="trash-outline" v-on:click="deleteItem"></ion-icon>
 		</div>
