@@ -31,6 +31,9 @@ export default new Vuex.Store({
 		setToken(state, token) {
 			state.token = token;
 		},
+		clearToken(state) {
+			state.token = '';
+		},
 	},
 	actions: {
 		// context.commit (ES6 Destructuring)
