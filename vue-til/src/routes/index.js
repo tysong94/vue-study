@@ -21,14 +21,17 @@ const router = new VueRouter({
 		{
 			path: '/main',
 			component: () => import('@/views/PostListPage.vue'),
+			meta: { auth: true },
 		},
 		{
 			path: '/add',
 			component: () => import('@/views/PostAddPage.vue'),
+			meta: { auth: true },
 		},
 		{
 			path: '/post/:id',
 			component: () => import('@/views/PostEditPage.vue'),
+			meta: { auth: true },
 		},
 		{
 			path: '*',
