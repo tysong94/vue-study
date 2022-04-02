@@ -6,12 +6,13 @@ describe('LoginForm.vue', () => {
 		const wrapper = shallowMount(LoginForm, {
 			data() {
 				return {
-					username: 'test',
+					username: 'test@abc.com',
 				};
 			},
 		});
 		const usernameInput = wrapper.find('#username');
 		console.log(usernameInput.element._value);
+		console.log(wrapper.vm.isUsernameValid);
 	});
 });
 
