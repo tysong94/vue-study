@@ -1,0 +1,9 @@
+테스트 파일 명 : .spec.js 또는 .test.js
+
+package.json
+"test": "vue-cli-service test:unit --watchAll", // 코드가 변경될 때마다 반영.
+
+jest api
+describe : 테스트케이스의 묶음
+test : 하나의 단위 테스트 실행
+expect(a).toBe(b) : a 의 결과값이 b가 맞는지 확인.
