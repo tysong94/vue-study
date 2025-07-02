@@ -1,0 +1,29 @@
+Vue Snippet 단축키
+- vim : import 빨리하는 입력어
+- vdata, vmethods...
+
+SignupForm.vue
+v-model : input값을 data()와 연결시키는것
+v-on:submit.prevent="submitForm"
+  - prevent : 새로고침 방지
+  - submitForm : 연결시킬 메소드명
+
+비동기 api 호출
+- axios 설치
+- Promise 객체를 반환하는 비동기 메서드 실행(api.get/post...) 시, 
+해당 메서드가 앞에는 await를, 해당 메서드가 포함된 메서드에는 async를 붙여준다.
+
+async-await : https://joshua1988.github.io/web-development/javascript/js-async-await/
+백틱 : https://joshua1988.github.io/es6-online-book/template-literal.html
+es6 destructuring : https://joshua1988.github.io/es6-online-book/destructuring.html
+
+axios create() : https://github.com/axios/axios#axioscreateconfig
+
+env파일 설정 방법
+- vue cli 3버전 이상부터 VUE_APP_을 붙이면 프로젝트 로딩시 자동으로 환경변수가 로딩되도록 함.
+- .env 파일 생성 -> 변수명 : VUE_APP_API_URL
+- 사용 : process.env.VUE_APP_API_URL
+- .env.development : npm run serve시에 사용
+- .env.production : npm run build시에 사용
+- .env : 위에 해당하는 파일이 없을 시 사용
+https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables

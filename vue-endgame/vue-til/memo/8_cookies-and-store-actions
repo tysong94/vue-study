@@ -1,0 +1,16 @@
+로그인시 api에서 받아오는 username, token과 같은 데이터를
+store에만 저장하면 새로고침시에 다시 리셋되어 사용자가 사용할 수 없게 됨.
+따라서 브라우저 저장소 중 하나인 cookies에 저장해야 한다.
+
+Cookies 확인 방법
+- 크롬 개발자 도구 -> Application -> Cookies
+
+Store
+  - state에 함수를 세팅하면 새로고침 할 때마다 해당 함수를 호출.
+
+async 함수 
+- 무조건 promise가 리턴됨.(별도로 return을 작성하지 않아도)
+단, return을 작성하지 않을 경우 빈 promise 반환
+
+await
+- 비동기 처리가 끝난 후에 다음 로직이 처리되도록 함

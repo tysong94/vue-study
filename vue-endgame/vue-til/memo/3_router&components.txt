@@ -1,0 +1,15 @@
+코드 스플리팅
+- 기본적으로 뷰는 SPA(Single Page application)이므로, 메인 페이지 로딩 시에
+모든 페이지 소스를 가져옴
+- 이를 페이지 호출시마다 필요한 소스를 가져오도록 수정하는 것.
+- 실무의 경우 페이지 소스가 매우 많기 때문에 호출되는 페이지만 소스를 불러오는 것이 효율적
+- 관련 웹페이지
+  - 웹팩 코드 스플리팅 : https://webpack.js.org/guides/code-splitting/
+  - Vue.js 다이나믹 임포트 : https://vuejs.org/guide/built-ins/keep-alive.html
+
+history mode
+- 뷰 라우터 history mode 주의사항 : https://router.vuejs.org/guide/essentials/history-mode.html
+- mode를 history로 할 경우, 소스 배포시에 서버에서 하위 url에 대한 정보를 인식할 수 있도록 서버마다
+별도의 설정을 해주어야 함. 이는 위의 url에서 참고하여 적용할 것.
+* 자세한 설명 
+안녕하세요 qkrthfk님, 좋은 질문 주셨네요. 설명을 제가 간단하게 언급하고 넘어가려다 보니 조금 이해하기 어려우셨을 것 같아요 :) 정리드리자면 화면에 /home, /login, /main 이라는 3개의 주소가 있다라고 했을 때 서버에서는 해당 URL이 클라이언트에서 관리가 되기 때문에 각 URL로 접근하게 되면 없는 주소로 인식합니다. 이런 경우를 위해 각 경로로 접근했을 때 서버에서 / URL로 돌려서 클라이언트 레벨의 라우팅이 처리가 되도록 설정해 주셔야 한다는 의미였습니다. 서버 설정은 아래 문서 참고해 주시구요 :)

@@ -1,0 +1,80 @@
+vue cli : 명령어를 통해 vue 프로젝트를 생성할 수 있는 vue 명령어 도구.
+vue create vue-til : 'vue-til'이라는 프로젝트를 생성하는 명령어
+preset : vue 플러그인 집합
+  
+? Please pick a preset: Manually select features
+? Check the features needed for your project: Choose vue version, Babel, Linter, Unit
+? Pick a linter / formatter config: Prettier
+? Pick additional lint features: Lint on save   
+? Pick a unit testing solution: Jest
+? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
+? Save this as a preset for future projects? (y/N) n
+
+vue 프로젝트 구조
+- node modules : npm 라이브러리
+- public : 배포할때 사용될 파일들(spa,single page application)
+- src : 소스
+- tests/unit : 테스트시 사용되는 소스
+각각의 config.js -> dedicated config 설정시 생성되는 파일들. package.json에 설정되는 것이 아닌
+별도의 파일들로 각각의 플러그인에 대한 설정을 관리.
+
+eslint 에러 표시 수정
+- eslint 에러가 화면에 표시되는 것은 vue 3버전 이후부터 나타나는 것
+- eslint 에러는 반드시 애플리케이션 실행에 영향을 미치는 에러는 아님.
+
+eslint 설정 파일(.eslintrc.js)
+- no-console : console 객체를 에러로 표시할 것인지 여부.
+  - production(빌드)할 경우면 warn, 아니면 off.
+
+
+Prettier
+- 코드 정렬(들여쓰기, 개행 등) 규칙을 설정하고 정렬해주는 플러그인
+- 본래 설정파일은 .prettierrc 이나, eslint를 같이 사용할 경우에는 설정을 .eslintrc에서 같이 한다.
+- .eslintrc.js에서 설정하게 되면, 규칙 설정 + 에러 표시까지 동시에 해주기 때문임.
+
+*vue 프로젝트에 어떤 플러그인이 사용되고 있는지 확인 
+- package.json -> devDependencies
+
+eslint 룰 어긋날 시 vscode 에디터에 표시하는 법
+- ctrl + ,(설정화면 열기)
+- eslint 검색 -> Eslint > Validate -> setting.json 에서 설정 변경
+- 붙여넣을 내용
+    // ESLint
+    "eslint.validate": [
+        
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        },
+        {
+            "language": "typescript",
+            "autoFix": true
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": true
+        }
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    // don't format on save
+    "editor.formatOnSave": false,
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+
+.eslintrc.js로 ESLint 규칙을 관리하는 이유
+- vscode 확장(extension)을 통해서 eslint나 prettier를 설정하게 되면 그 pc에서 밖에 설정을 유지할 수 없음
+- 따라서 프로젝트 소스 레벨(.eslintrc.js)로 규칙을 관리하는 것이 팀 단위나 다른 곳에서 작업 시에 동일한 환경으로 작업할 수 있음.
+
