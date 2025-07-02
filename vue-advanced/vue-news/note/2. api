@@ -1,0 +1,42 @@
+- axios 설치
+npm i axios --save
+
+- promise
+axios.get을 하면 new Promise() 객체를 반환. -> then, catch 사용 가능.
+
+- api 함수 구조화 하는 이유
+1. import 중복
+2. url 중복 등
+
+[자바스크립트의 4가지 this]
+자바스크립트는 기본적으로 전역으로 시작.
+모든 변수, 함수의 최상단에는 window가 있다.
+
+1. 그냥 this = window
+
+2. 함수 안의 this = window
+ex) function sum() {
+  console.log(this);
+  return a + b;
+}
+
+3. 생성자 안의 this = 인스턴스 자신(생성자 함수)
+ex) 
+function Vue(el) {
+  console.log(this);
+  this.el = el;
+}
+
+4. 비동기 처리의 this 
+- 기본적으로 기존 위치를 벗어난 this를 가리킴(undefined)
+- but 화살표 함수를 사용할 경우, this = Vue Component를 가리킴.
+
+[자바스크립트의 비동기 처리]
+1. Callback : 인자로 넘겨지는 함수. 즉, 특정 함수의 실행이 완료되면 
+다시 호출(callBack)되는 함수.
+
+2. Promise
+- Promise 생성자는 반드시 resolve, reject 인자를 가진 함수를 인자로 함.
+- resolve(data) -> .then(data)
+- reject(data) -> catch(data)
+즉, .then()과 .catch()를 제공하는 객체

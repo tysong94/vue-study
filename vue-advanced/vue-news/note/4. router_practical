@@ -1,0 +1,15 @@
+1. 동적 라우트 매칭 및 적용
+- 특정 페이지의 정보를 다음 페이지로 넘겨줄 수 있는 것
+- path 에 [:속성명] 을 지정하면 해당 위치의 데이터가 해당 속성에 할당됨.
+- 해당 컴포넌트의 route의 params에 표시된다.
+
+2. 백틱
+`/user/${item.user}`
+
+3. 디스트럭쳐링
+- 특정 객체를 인자로 받을 경우, 객체의 특정 속성만 명시적으로 가져올 때 사용
+ex) 
+.then(response => {console.log(response.data)})
+.then({data} => {console.log(data)})
+
+4. html 태그를 화면에 표시할 때 사용하는 태그속성 : v-html="{{}}"

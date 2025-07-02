@@ -1,0 +1,26 @@
+설치
+npm i vue-router --save
+
+적용
+// index.js
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+export const router = new VueRouter({
+  routes: [
+    {
+      path: ,
+      component:
+    },
+    ...
+  ]
+})
+
+// main.js
+import { router } from ..
+
+views와 components의 차이
+
+views : 라우터의 페이지 컴포넌트에 해당하는 vue 파일
+components: 페이지 컴포넌트의 하위 컴포넌트들

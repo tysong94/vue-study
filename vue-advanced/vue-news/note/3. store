@@ -1,0 +1,58 @@
+1. 구조변경
+- Before
+NewsView <- API
+
+- After
+NewsView <- Vuex(state <- mutations <- actions) <- API
+
+2. vuex 설치
+- npm i vuex 
+- Vuex : 여러 컴포넌트 간의 데이터를 관리하는 플러그인
+- 별도로 모듈화 후 main.js에서 Vue 인스턴스에 적용.
+
+
+4. Vuex 속성들 역할
+actions: 비동기 api와 통신
+mutations : state를 변경
+
+
+5. 컴포넌트 상에서 호출방법
+this.$store.state.[state 속성명]
+this.$store.dispatch('[actions 속성명]')
+
+
+6. store 객체 내에서 접근방법
+접근 순서 : actions -> mutations -> state
+actions -> mutations : context.commit('[mutation 속성명]', 넘길 인자)
+mutations -> state : state.[데이터 속성]
+
+
+7. Vuex Data Flow
+https://vuex.vuejs.org/#what-is-a-state-management-pattern
+
+
+8. map 헬퍼 함수 사용법.
+  1) store/index.js
+    - getters 속성 추가
+    ex) 
+    getters: {
+      fetchedNews(state) {
+        return state.news;
+      }
+    },
+  
+  2) Vue Component
+    
+    - 임포트 
+      ex) import { mapGetters } from 'vuex';
+    
+    - computed 속성에 map Getter 추가
+      ex) 
+      computed: {
+        ...mapGetters(['fetchedNews'])
+      },  
+    
+    - template에서 사용
+  
+  9. 모듈화
+    

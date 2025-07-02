@@ -1,0 +1,73 @@
+이벤트 버스 : 빈 이벤트 객체를 생성하여 컴포넌트간 데이터 전달하는 것
+
+* export 차이
+
+export const bus = new Vue();
+import { bus } from './bus.js';
+
+export default new Vue();
+import 원하는 이름 from './bus.js';
+
+* callback 함수 사용
+인자로 callback 함수를 사용 시에 callback함수로 전달되는 인자가 없는 경우, 
+그냥 함수명만 입력. 함수명 뒤에 ()입력하지 않음.
+ex)
+bus.$on('start:spinner', this.startSpinner); 
+(뒤의 this.startSpinner는 콜백 함수이다.)
+
+*setTimeout 사용법
+  setTimeout(() => {
+    실행할 함수, 
+  }, 3000);
+
+*dispatch: Promise 함수이다.
+ex) 
+    setTimeout(() => {
+      this.$store.dispatch('FETCH_NEWS')
+        .then(() => {
+          console.log('fetched');
+          bus.$emit('end:spinner');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 3000);
+
+*HOC(High Order Component)
+- 공통된 컴포넌트들을 렌더링하는 하나의 컴포넌트. 
+- 렌더링으로 컴포넌트 생성시에 상위에 하이오더 컴포넌트 하나가 더 생성됨.
+
+결국 목적은, 공통된 컴포넌트 생성시 중복되는 로직을 js로 미리 처리한 후에
+컴포넌트를 생성하는 것.
+
+- 결국 라우터에서 적용되는 컴포넌트들의 개수를 줄이는 역할을 함.
+
+0. routes
+  - router에서 /news, /ask, /jobs routes들의 component에 CreateListView함수를 넣음.
+
+1. NewsView, AskView, JobsView 의 하위 오더 컴포넌트인 ListView 생성
+2. Store
+  - state의 news, ask, jobs를 대체하는 list 속성 추가
+3. api.js
+  - fetchNews, fetchAsk, fetchJobs를 대체하는 fetchList() 추가.
+4. actions.js
+  - FETCH_LIST 추가.
+
+
+페이지 표시 순서
+router -> component -> 하위컴포넌트
+router -> 하이오더 컴포넌트(js) -> 컴포넌트 -> 하위컴포넌트
+
+* Mixin과 HOC의 차이
+
+1. 선언
+export default {
+  // 재사용할 컴포넌트 옵션
+}
+
+export default function CrateListView(name) {
+  // 재사용할 컴포넌트 옵션
+}
+
+2.장단점
+- HOC은 컴포넌트 깊이가 더 깊어진다는 단점이 있다.
