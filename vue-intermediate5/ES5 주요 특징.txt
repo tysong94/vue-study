@@ -1,0 +1,40 @@
+[특징 1. scope]
+{}에 상관없이 스코프가 설정됨
+
+[특징 2. hoisting]
+함수 선언식(statement)
+function sum() {
+  return 10 + 20;
+}
+
+함수 표현식
+var sum = function () {
+  retrun 10 + 20;
+}
+
+함수 선언문과 변수 선언이 메모리 할당이 제일 먼저 이뤄진다.
+(제일 먼저 코드를 해석한다.)
+ex)
+var sum = 5;
+sum = sum + i;
+
+function sumAllNumbers() {
+  ...
+}
+
+var i = 10;
+
+<순서>
+//함수, 변수 선언
+var sum;
+function sumAllNumbers() {
+  ...
+};
+var i;
+
+//변수 할당
+sum = 5;
+sum = sum + i;
+i = 10;
+
+
